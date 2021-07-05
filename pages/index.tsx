@@ -41,8 +41,9 @@ export default function Home() {
 
     let resultType = name.split(" ")[0].toLowerCase()
     let resultMacro = name.split(" ")[1].toLowerCase()
+    
 
-    data[resultMacro][resultType] = parseInt(e.target.value);
+    data[resultMacro][resultType] = e.target.value;
 
     setResult(data)
   }
@@ -81,12 +82,14 @@ export default function Home() {
         <div className="flex">
         <Form item="Total" data={result} onChange={onChange}/>
         <Form item="Target" data={result} onChange={onChange}/>
-        <Form item="Variant" data={result} onChange={onChange}/>
-         
+        <Form item="Variant" data={result} onChange={onChange}/> 
           </div>
+
+
             <div className="flex text-center">
-              <div className="w-full m-4"></div>
+              <div className="w-full m-4">
               <button className="bg-green-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Save</button>
+            </div>
             </div>
     
       </div>
