@@ -4,6 +4,7 @@ import React, {useState} from "react"
 import Form from '../components/Form'
 import Result from './../components/Result'
 import fetch from 'isomorphic-unfetch'
+import dayjs from 'dayjs'
 
 const Home = ({data}) => {
   
@@ -22,6 +23,12 @@ const Home = ({data}) => {
     data[resultMacro][resultType] = e.target.value;
 
     setResult(data)
+
+  }
+
+  const getPreviousData = () => {
+    let currentdate = dayjs(result.date)
+    console.log(currentdate)
   }
   
   return (
@@ -43,7 +50,7 @@ const Home = ({data}) => {
         </div>
 
         <div className="flex text-center">
-        <div className="p-4 bg-gray-200 w-1/3 c-white">Previous Day</div>
+        <div className="p-4 bg-gray-200 w-1/3 c-white"><button onClick={getPreviousData}>Previous Data</button></div>
         <div className="p-4  w-1/3">Current Day</div>
         <div className="p-4 bg-gray-200 w-1/3">Next Day</div>
       </div>
