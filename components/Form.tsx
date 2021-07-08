@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Form({ item, onChange }) {
+export default function Form({ data, item, onChange }) {
   return (
       <div className="w-1/3 flex-wrap">
         <h2 className="text-3xl p-4">{item}</h2>
