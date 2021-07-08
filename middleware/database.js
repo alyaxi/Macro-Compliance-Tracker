@@ -2,7 +2,7 @@ import nextConnect from "next-connect"
 import { MongoClient } from 'mongodb';
 const dotenv = require("dotenv")
 dotenv.config()
-const client = new MongoClient(process.env.MONGODB_QUERY_STRING, {
+const client = new MongoClient("mongodb+srv://alyaxi:alyaxi123@mct.rd1yc.mongodb.net/MCT?retryWrites=true&w=majority", {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
