@@ -60,11 +60,7 @@ const Home = ({data}) => {
     console.log(res);
   }
 
-  const CurrentData = async () => {
-    
-    
-    setResult(data)
-  }
+  
   
   return (
     <div>
@@ -115,7 +111,7 @@ const Home = ({data}) => {
   )
 }
 
-export async function getStaticProps(context) {
+export async function getStaticProps() {
   const res = await fetch("http://localhost:3000/api/daily")
   const json  = await res.json()
   return{
