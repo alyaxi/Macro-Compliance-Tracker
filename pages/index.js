@@ -1,11 +1,11 @@
-import Head from 'next/head'
 import React, {useState} from "react"
+import Head from 'next/head'
 import Form from '../components/Form'
-import Result from './../components/Result'
+import Result from '../components/Result'
 import fetch from 'isomorphic-unfetch'
 import dayjs from 'dayjs'
 
-const Home = ({data}) => {
+const Index = ({data}) => {
   
 
   const [result, setResult] =useState(data)
@@ -66,7 +66,6 @@ const Home = ({data}) => {
     <div>
       <Head>
       <title>Home</title>
-      <link rel="icon" href="/favicon.ico" />
       <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet" />
       </Head>
 
@@ -111,7 +110,7 @@ const Home = ({data}) => {
   )
 }
 
-export const getStaticProps = async (context) => {
+export const getStaticProps = async () => {
   const res = await fetch("http://localhost:3000/api/daily")
   const json  = await res.json()
   return{
@@ -119,4 +118,4 @@ export const getStaticProps = async (context) => {
       data: json
     }   }
 }
-export default Home
+export default Index

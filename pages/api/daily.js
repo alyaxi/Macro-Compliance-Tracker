@@ -44,7 +44,7 @@ handler.post(async (req, res) => {
   let doc = await req.db.collection('daily').updateOne({date: newDate}, {$set:data}, {upsert: true})
 
   res.json({message: 'ok'});
-  return doc
+ 
 }) 
 
 
