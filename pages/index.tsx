@@ -75,9 +75,9 @@ const Home = ({data}) => {
       <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet" />
       </Head>
 
-      <div className="container mx-auto">
+      <div className="container flex-wrap mx-auto">
 
-        <div className="flex text-center">
+        <div className="flex flex-wrap text-center">
         <div className="w-full m-4">
           <h1 className="text-4xl">
           Macro Compliance Tracker
@@ -85,27 +85,27 @@ const Home = ({data}) => {
         </div>
         </div>
 
-        <div className="flex text-center">
+        <div className="flex flex-wrap text-center">
         <div className="p-4 bg-gray-200 w-1/3 c-white"><button onClick={getPreviousData}>Previous Day</button></div>
         <div className="p-4  w-1/3"> {dayjs(result.date).format('MM/DD/YYYY')}</div>
         <div className="p-4 bg-gray-200 w-1/3"><button onClick={getNextData}>Next Day</button></div>
       </div>
 
-        <div className="flex mb-4 text-center">
+        <div className="flex flex-wrap mb-4 text-center">
          <Result result={result.calories} />
          <Result result={result.carbs} />
          <Result result={result.fat} />
          <Result result={result.protein} />
         </div>
 
-        <div className="flex">
+        <div className="flex flex-wrap">
         <Form item="Total" data={result} onChange={onChange}/>
         <Form item="Target" data={result} onChange={onChange}/>
         <Form item="Variant" data={result} onChange={onChange}/> 
           </div>
 
 
-            <div className="flex text-center">
+            <div className="flex text-center flex-wrap">
               <div className="w-full m-4">
               <button className="bg-green-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={updateData}>Save</button>
             </div>

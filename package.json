@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "dayjs": "^1.10.6",
+    "dotenv": "^10.0.0",
     "isomorphic-unfetch": "^3.1.0",
     "mongodb": "^3.6.9",
     "next": "11.0.1",
