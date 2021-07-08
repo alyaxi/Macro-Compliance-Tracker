@@ -27,7 +27,7 @@ export default function Form({ data, item, onChange }) {
           <input
             type="number"
             onChange={(e) => onChange(e)}
-            name={item + " Carbs"} 
+            name={item + " Fat"} 
             className="bg-gray-200 text-green-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
           />
         </div>
@@ -36,7 +36,7 @@ export default function Form({ data, item, onChange }) {
           <input
             type="number"
             onChange={(e) => onChange(e)}
-            name={item + " Carbs"} 
+            name={item + " Protein"} 
             className="bg-gray-200 text-green-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
           />
         </div>

@@ -26,9 +26,45 @@ const Home = ({data}) => {
 
   }
 
-  const getPreviousData = () => {
+  const getPreviousData = async() => {
     let currentdate = dayjs(result.date)
-    console.log(currentdate)
+    console.log("date : ", currentdate)
+    const newDate = currentdate.subtract(1, "day").format("YYYY-MM-DDTHH:mm:ss")
+    console.log("new date : ", newDate)
+    const res = await fetch('http://localhost:3000/api/daily?date=' +  newDate)
+    const data = await res.json()
+    console.log("Data : ", data)
+
+    setResult(data)
+    
+  }
+
+  const getNextData = async() => {
+    let currentdate = dayjs(result.date)
+    console.log("date : ", currentdate)
+    const newDate = currentdate.add(1, "day").format("YYYY-MM-DDTHH:mm:ss")
+    console.log("new date : ", newDate)
+    const res = await fetch('http://localhost:3000/api/daily?date=' +  newDate)
+    const data = await res.json()
+    console.log("Data : ", data)
+
+    setResult(data)
+    
+  }
+
+  const updateData = async () => {
+    const res = await fetch('http://localhost:3000/api/daily', {
+      method: 'post',
+      body: JSON.stringify(result)
+    })
+
+    console.log(res);
+  }
+
+  const CurrentData = async () => {
+    
+    
+    setResult(data)
   }
   
   return (
@@ -50,9 +86,9 @@ const Home = ({data}) => {
         </div>
 
         <div className="flex text-center">
-        <div className="p-4 bg-gray-200 w-1/3 c-white"><button onClick={getPreviousData}>Previous Data</button></div>
-        <div className="p-4  w-1/3">Current Day</div>
-        <div className="p-4 bg-gray-200 w-1/3">Next Day</div>
+        <div className="p-4 bg-gray-200 w-1/3 c-white"><button onClick={getPreviousData}>Previous Day</button></div>
+        <div className="p-4  w-1/3"> {dayjs(result.date).format('MM/DD/YYYY')}</div>
+        <div className="p-4 bg-gray-200 w-1/3"><button onClick={getNextData}>Next Day</button></div>
       </div>
 
         <div className="flex mb-4 text-center">
@@ -71,7 +107,7 @@ const Home = ({data}) => {
 
             <div className="flex text-center">
               <div className="w-full m-4">
-              <button className="bg-green-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Save</button>
+              <button className="bg-green-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={updateData}>Save</button>
             </div>
             </div>
     
