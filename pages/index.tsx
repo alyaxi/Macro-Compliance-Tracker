@@ -111,7 +111,7 @@ const Home = ({data}) => {
   )
 }
 
-export async function getStaticProps() {
+export const getStaticProps = async (context) => {
   const res = await fetch("http://localhost:3000/api/daily")
   const json  = await res.json()
   return{
